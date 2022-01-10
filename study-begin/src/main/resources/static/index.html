@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            window.onload = (ev) => {
+                // axios.get("/user")
+                //     .then(res => {
+                //         console.log(res);
+                //     });
+                const es = new EventSource("/user");
+                es.onmessage = ev => {
+                    console.log(ev);
+                }
+
+                setTimeout(() => {
+                    es.close();
+                }, 12*1000)
+
+            };
+        </script>
+    </head>
+    <body>
+        hello
+    </body>
+</html>
