@@ -1,1 +1,3 @@
-include "study-begin"
+file("${rootDir}").eachDirMatch(~/study.*/) {
+    include "${it.name}"
+}
